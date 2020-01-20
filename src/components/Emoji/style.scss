@@ -1,0 +1,31 @@
+.emoji-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.emoji-card {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 140px;
+  width: 120px;
+  padding: 15px;
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(220deg, #313854 0%, #242733 100%);
+}
+
+.emoji-char {
+  font-size: 45px;
+  margin-bottom: auto;
+}
+
+.emoji-slug {
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+}
