@@ -1,0 +1,19 @@
+.footer {
+  margin: 70px 0 30px 0;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: #ddd;
+  i {
+      width: 18px;
+      height: 100%;
+  }
+  svg {
+      width: 1rem;
+      height: auto;
+      margin: 0 5px;
+  }
+  .heart {
+    color: #e74c3c;
+  }
+}
