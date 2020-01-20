@@ -6,7 +6,7 @@
 
 **Emojo** is a `emoji search tool`, created with the sole purpose of practicing API calls and React Hooks and all of that new stuff.
 
-## Installing <project_name>
+## Installing emojo
 
 To install **emojo**:
 
