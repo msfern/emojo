@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from './services/api';
 import Search from './components/Search/index';
-// import CategoryList from './components/CategoryList/index';
+import CategoryList from './components/CategoryList/index';
 import EmojiList from './components/EmojiList/index';
 import Footer from './components/Footer/index';
 
@@ -58,7 +58,7 @@ function App() {
         <Search updateSearch={updateSearch} />
       </header>
       <EmojiList emojiList={emojis} />
-      { <CategoryList categories={categories} /> }
+      <CategoryList categories={categories} />
       <Footer />
     </div>
   );
