@@ -12,9 +12,8 @@ function App() {
 
   const [allEmojis, setAllEmojis] = useState([]);
   const [emojis, setEmojis] = useState([]);
-  // const [categories, setCategories] = useState({});
+  const [categories, setCategories] = useState({});
 
-  
   function updateSearch(text) {
     const emojiList =  allEmojis.filter((emoji) => (
       emoji.unicodeName.toLowerCase().indexOf(text.toLowerCase()) !== -1
@@ -33,26 +32,24 @@ function App() {
     loadEmojis();
   }, []);
 
-  // async function getFirstEmojiFromFirstSubcategory(slug) {
-  //   const firstEmoji = await api.get(`/categories/${slug}`);
-  //   if (firstEmoji.data) {
-  //     return firstEmoji.data[0].character
-  //   }
-  // }
+  async function getFirstEmojiFromFirstSubcategory(slug) {
+    const firstEmoji = await api.get(`/categories/${slug}`);
+    if (firstEmoji.data) {
+      return firstEmoji.data[0].character
+    }
+  }
 
-  // useEffect(() => {
-  //   async function loadCategories() {
-  //     const response = await api.get('/categories');
-  //     const categoryList = response.data.map((category) => (
-  //       { 
-  //         slug: category.slug,
-  //         emoji: getFirstEmojiFromFirstSubcategory(category.slug)
-  //       }
-  //     ))
-  //     setCategories(categoryList);
-  //   }
-  //   loadCategories();
-  // },[]);  
+  useEffect(() => {
+    async function loadCategories() {
+      const response = await api.get('/categories');
+      const parse = ({ slug }) => getFirstEmojiFromFirstSubcategory(slug)
+        .then(emoji => ({ slug, emoji }));
+
+      const categoryList = await Promise.all(response.data.map(parse))
+      setCategories(categoryList);
+    }
+    loadCategories();
+  },[]);
 
   return (
     <div className="App">
@@ -61,7 +58,7 @@ function App() {
         <Search updateSearch={updateSearch} />
       </header>
       <EmojiList emojiList={emojis} />
-      {/* <CategoryList categories={categories} /> */}
+      { <CategoryList categories={categories} /> }
       <Footer />
     </div>
   );
