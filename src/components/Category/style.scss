@@ -1,0 +1,26 @@
+.category { 
+  background-color: #23233F; 
+  display: flex;
+  width: 195px;
+  height: 60px;
+  position: relative;
+  margin: 15px auto;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 20px;
+  cursor: pointer;
+  &-name { 
+    color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: 600;
+  }
+  &-emoji { 
+    font-size: 3.5rem;
+    position: absolute;
+    left: -30px;
+    top: -4px;
+  }
+}
