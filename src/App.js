@@ -45,8 +45,8 @@ function App() {
       const parse = ({ slug }) => getFirstEmojiFromFirstSubcategory(slug)
         .then(emoji => ({ slug, emoji }));
 
-      const categoryList = await Promise.all(response.data.map(parse))
-      setCategories(categoryList);
+      const categoryList = await Promise.all(response.data.map(parse));
+      setCategories(categoryList.filter(({ slug }) => slug !== 'component' ));
     }
     loadCategories();
   },[]);
