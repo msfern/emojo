@@ -1,3 +1,13 @@
-.category-list {
-  margin-top: 70px;
+.category {
+  &-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  &-title {
+    margin: 70px 0 20px;
+    text-align: left;
+    width: 100%;
+    color: #fff;
+  }
 }
