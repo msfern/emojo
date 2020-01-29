@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import api from '../../services/api';
+import React from 'react';
 
 import './style.scss';
 
-function Category({ slug }) {
-  const [char, setChar] = useState([]);
-
-  useEffect(() => {
-    async function getFirstEmojiFromFirstSubcategory() {
-      const firstEmoji = await api.get(`/categories/${slug}`);
-      if (firstEmoji.data) {
-        setChar(firstEmoji.data[0].character);
-      }
-    }
-    getFirstEmojiFromFirstSubcategory();
-  },); 
+function Category({ details }) {
 
   return (
     <div>
-      <p>{slug}</p>
-      <p>{char}</p>
+      <p>{details.slug}</p>
+      <p>{details.emoji}</p>
     </div>
   );
 }

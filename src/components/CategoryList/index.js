@@ -8,9 +8,9 @@ function CategoryList({ categories }) {
 
   return (
     <div className='category-list'>
-      { categories.map((cat) => (
-        <Category key={cat.slug} slug={cat.slug} />
-      )) }
+      { Object.keys(categories).map((category) => (
+        <Category key={category} details={categories[category]} />
+      ))}
     </div>
   );
 }

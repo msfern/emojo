@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import api from './services/api';
 import Search from './components/Search/index';
@@ -13,19 +12,19 @@ function App() {
 
   const [allEmojis, setAllEmojis] = useState([]);
   const [emojis, setEmojis] = useState([]);
-  // const [categories, setCategories] = useState([]);
-  const [search, setSearch] = useState('');
+  // const [categories, setCategories] = useState({});
 
   
   function updateSearch(text) {
-    setSearch(text);
-    console.log(search, text)
-    const emojiList =  allEmojis.filter((text) => (
-      text.unicodeName.toLowerCase().indexOf(search.toLowerCase()) !== -1
+    const emojiList =  allEmojis.filter((emoji) => (
+      emoji.unicodeName.toLowerCase().indexOf(text.toLowerCase()) !== -1
     ));
+    if(text === '') {
+      return setEmojis([]);
+    }
     setEmojis(emojiList);
   }
-  
+
   useEffect(() => {
     async function loadEmojis() {
       const response = await api.get('/emojis');
@@ -34,19 +33,23 @@ function App() {
     loadEmojis();
   }, []);
 
-  // useEffect(() => {
-  //   async function loadEmojisFromCategory() {
-  //     const response = await api.get('/emojis');
-  //     console.log(response.data);
-  //     // setEmojis(response.data);
+  // async function getFirstEmojiFromFirstSubcategory(slug) {
+  //   const firstEmoji = await api.get(`/categories/${slug}`);
+  //   if (firstEmoji.data) {
+  //     return firstEmoji.data[0].character
   //   }
-  //   loadEmojisFromCategory();
-  // }, []);
+  // }
 
   // useEffect(() => {
   //   async function loadCategories() {
   //     const response = await api.get('/categories');
-  //     setCategories(response.data);
+  //     const categoryList = response.data.map((category) => (
+  //       { 
+  //         slug: category.slug,
+  //         emoji: getFirstEmojiFromFirstSubcategory(category.slug)
+  //       }
+  //     ))
+  //     setCategories(categoryList);
   //   }
   //   loadCategories();
   // },[]);  
