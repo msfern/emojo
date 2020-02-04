@@ -12,6 +12,8 @@ function App() {
 
   const [allEmojis, setAllEmojis] = useState([]);
   const [emojis, setEmojis] = useState([]);
+  const [loadingEmoji, setLoadingEmoji] = useState(false);
+  const [loadingCategories, setLoadingCategories] = useState(true);
   const [categories, setCategories] = useState({});
 
   function updateSearch(text) {
@@ -19,9 +21,13 @@ function App() {
       emoji.unicodeName.toLowerCase().indexOf(text.toLowerCase()) !== -1
     ));
     if(text === '') {
-      return setEmojis([]);
+      return clearResults();
     }
     setEmojis(emojiList);
+  }
+
+  function clearResults() {
+    setEmojis([]);
   }
 
   useEffect(() => {
@@ -47,18 +53,28 @@ function App() {
 
       const categoryList = await Promise.all(response.data.map(parse));
       setCategories(categoryList.filter(({ slug }) => slug !== 'component' ));
+      setLoadingCategories(false);
     }
     loadCategories();
   },[]);
+
+  async function loadCategory(category) {
+    clearResults();
+    setLoadingEmoji(true);
+    const response = await api.get(`/categories/${category}`);
+    setEmojis(response.data);
+    setLoadingEmoji(false);
+
+  }
 
   return (
     <div className="App">
       <header className='header'>
         <img className='logo' src='./emojo.svg' alt='emojo logo' />
-        <Search updateSearch={updateSearch} />
+        <Search updateSearch={updateSearch} isLoading={loadingCategories} />
       </header>
-      <EmojiList emojiList={emojis} />
-      <CategoryList categories={categories} />
+      <EmojiList emojiList={emojis} isLoading={loadingEmoji} clearResults={clearResults} />
+      <CategoryList categories={categories} isLoading={loadingCategories} loadCategory={loadCategory} />
       <Footer />
     </div>
   );
