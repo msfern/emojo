@@ -9,6 +9,8 @@
   border-bottom-left-radius: 15px;
   padding: 20px;
   cursor: pointer;
+  transition: transform .2s linear;
+  transform: scale(1);
   &-name { 
     color: #fff;
     width: 100%;
@@ -22,5 +24,8 @@
     position: absolute;
     left: -30px;
     top: -4px;
+  }
+  &:hover {
+    transform: scale(1.1);
   }
 }
