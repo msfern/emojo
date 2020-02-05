@@ -18,8 +18,7 @@ function App() {
 
   function updateSearch(text) {
     const emojiList =  allEmojis.filter((emoji) => (
-      emoji.unicodeName.toLowerCase().indexOf(text.toLowerCase()) !== -1
-    ));
+      emoji.unicodeName.toLowerCase().includes(text.toLowerCase())));
     if(text === '') {
       return clearResults();
     }
