@@ -17,3 +17,10 @@
     color: #e74c3c;
   }
 }
+
+@media screen and (max-width: 340px){
+  .footer {
+    display: block;
+    text-align: center;
+  }
+}
