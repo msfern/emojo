@@ -15,6 +15,7 @@ function App() {
   const [loadingEmoji, setLoadingEmoji] = useState(false);
   const [loadingCategories, setLoadingCategories] = useState(true);
   const [categories, setCategories] = useState({});
+  const [resultWasCleared, setResultWasCleared] = useState(false);
 
   function updateSearch(text) {
     const emojiList =  allEmojis.filter((emoji) => (
@@ -27,6 +28,7 @@ function App() {
 
   function clearResults() {
     setEmojis([]);
+    setResultWasCleared(true);
   }
 
   useEffect(() => {
@@ -69,8 +71,8 @@ function App() {
   return (
     <div className="App">
       <header className='header'>
-        <img className='logo' src='./emojo.svg' alt='emojo logo' />
-        <Search updateSearch={updateSearch} isLoading={loadingCategories} />
+        <img className='logo' src='./emojo.svg' alt='emojo logo' /> 
+        <Search updateSearch={updateSearch} isLoading={loadingCategories} resultWasCleared={resultWasCleared} setResultWasCleared={setResultWasCleared} />
       </header>
       <EmojiList emojiList={emojis} isLoading={loadingEmoji} clearResults={clearResults} />
       <CategoryList categories={categories} isLoading={loadingCategories} loadCategory={loadCategory} />
