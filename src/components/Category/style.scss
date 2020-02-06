@@ -4,7 +4,7 @@
   width: 195px;
   height: 60px;
   position: relative;
-  margin: 15px auto;
+  margin: 15px auto 15px 25px;
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
   padding: 20px;
@@ -28,4 +28,10 @@
   &:hover {
     transform: scale(1.1);
   }
+}
+
+@media screen and (max-width: 472px){
+  .category {
+    margin-left: auto;
+  }  
 }

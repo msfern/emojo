@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     margin-bottom: 30px;
     width: 100%;
+    align-items: center;
 
   }
   &-title {
@@ -13,4 +14,12 @@
     width: 100%;
     color: #fff;
   }
+}
+
+@media screen and (max-width: 630px){
+  .category {
+    &-title {
+      text-align: center;
+    }
+  }  
 }
