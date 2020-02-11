@@ -16,7 +16,7 @@ function Search({ updateSearch, isLoading, resultWasCleared, setResultWasCleared
   return (
     <div className='search-container'>
       <input className='search-input' placeholder='Search emoji...' onChange={e => updateSearch(e.target.value)} disabled={isLoading} ref={searchRef}/>
-      <img className='search-icon' src='./search.svg' alt='Search icon' />
+      <i className="fas fa-search"></i>
     </div>
   );
 }
