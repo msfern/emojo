@@ -1,37 +1,56 @@
-# emojo
+<!-- ![Application Preview](print.png) -->
 
-<!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
-![GitHub repo size](https://img.shields.io/github/repo-size/scottydocs/README-template.md)
-![Twitter Follow](https://img.shields.io/twitter/follow/iztef?style=social)
+## 📙 Overview
 
-**Emojo** is a `emoji search tool`, created with the sole purpose of practicing API calls and React Hooks and all of that new stuff.
+An **emoji** search application made with the goal to practice API calls and async/await.
 
-## Installing emojo
+<!-- - **Typescript.** So useful yet it never really interested me until a while ago.
+- **Local Storage saving.** Let's keep them stored data coming.
+- **Transitions.** Making things pretty since (insert year here).
+- **Styled Components.** Yep, it's time, baby.
+- **Testing.** Time to close this wound and finally make amends with Jest and Enzyme -shivers-
+- **Architecture.** Not a tech, but I've been told my code structure is making people get sick, so yeah.
+- **Dark Mode.** IT'S EVERYWHERE. -->
 
-To install **emojo**:
+## 🔨 Process
+
+As always with all of my from-scratch projects, I sketched it on paper first. I'm a very visual person, so I like this pen and paper time to decide everything on the spot: colors, components, which techs to use, transitions, etc.
+
+This is a WIP. Come back later.
+
+## 🎨 Palette
+
+<!-- | Color                            | Hex                             |                                                      
+| -------------                    |:-------------:                  |
+| ![#171219](https://placehold.it/15/171219/000000?text=+) | #171219 |
+| ![#A39BA8](https://placehold.it/15/A39BA8/000000?text=+) | #A39BA8 |
+| ![#FFFFFF](https://placehold.it/15/ffffff/000000?text=+) | #FFFFFF |
+| ![#1170FF](https://placehold.it/15/1170FF/000000?text=+) | #1170FF |
+| ![#DB5461](https://placehold.it/15/DB5461/000000?text=+) | #DB5461 |
+
+**Font Family:** [Roboto](https://fonts.google.com/specimen/Roboto) -->
+
+## 💾 Getting Started
+To build and run this application locally, you'll need latest versions of Git and Node.
 
 ```
-1. Clone the repository
-```
-```
-2. yarn add or npm install
-```
-```
-3. yarn start or npm start
+# Clone this repository
+$ git clone https://github.com/msfern/emojo
+
+# Go into the repository
+$ cd emojo
+
+# Install the dependencies
+$ npm install 
+$ or
+$ yarn
+
+# Start the application
+$ npm start 
+$ or
+$ yarn start
 ```
 
-## Contributing to Emojo
-<!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
-To contribute to **emojo**, follow these steps:
+## License
 
-1. Fork this repository.
-2. Create a branch: `git checkout -b <branch_name>`.
-3. Make your changes and commit them: `git commit -m '<commit_message>'`
-4. Push to your branch.
-5. Create the pull request.
-
-Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
-
-## Contact
-
-If you want to contact me you can reach me at <m.stephanie.fernandes@gmail.com>.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
