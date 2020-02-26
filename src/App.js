@@ -17,8 +17,6 @@ function App() {
   const [categories, setCategories] = useState({});
   const [resultWasCleared, setResultWasCleared] = useState(false);
 
-  const API_KEY= process.env.REACT_APP_EMOJI_API_KEY;
-
   function updateSearch(text) {
     const emojiList =  allEmojis.filter((emoji) => (
       emoji.unicodeName.toLowerCase().includes(text.toLowerCase())));
@@ -35,15 +33,14 @@ function App() {
 
   useEffect(() => {
     async function loadEmojis() {
-      debugger
-      const response = await api.get(`/emojis?access_key=${API_KEY}`);
+      const response = await api.get(`/emojis?access_key=${process.env.REACT_APP_EMOJI_API_KEY}`);
       setAllEmojis(response.data);
     }
     loadEmojis();
-  }, [API_KEY]);
+  }, []);
 
   async function getFirstEmojiFromFirstSubcategory(slug) {
-    const firstEmoji = await api.get(`/categories/${slug}?access_key=${API_KEY}`);
+    const firstEmoji = await api.get(`/categories/${slug}?access_key=${process.env.REACT_APP_EMOJI_API_KEY}`);
     if (firstEmoji.data) {
       return firstEmoji.data[0].character
     }
@@ -51,7 +48,7 @@ function App() {
 
   useEffect(() => {
     async function loadCategories() {
-      const response = await api.get(`/categories?access_key=${API_KEY}`);
+      const response = await api.get(`/categories?access_key=${process.env.REACT_APP_EMOJI_API_KEY}`);
       const parse = ({ slug }) => getFirstEmojiFromFirstSubcategory(slug)
         .then(emoji => ({ slug, emoji }));
 
@@ -66,7 +63,7 @@ function App() {
   async function loadCategory(category) {
     clearResults();
     setLoadingEmoji(true);
-    const response = await api.get(`/categories/${category}?access_key=${API_KEY}`);
+    const response = await api.get(`/categories/${category}?access_key=${process.env.REACT_APP_EMOJI_API_KEY}`);
     setEmojis(response.data);
     setLoadingEmoji(false);
 
