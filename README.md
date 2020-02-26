@@ -4,6 +4,12 @@
 
 An **emoji** search application made with the goal to practice API calls and async/await.
 
+Todo:
+- Add confirmation that emoji has been copied.
+- Add transitions.
+- Performance is not good at the moment.
+- Mobile version is broken.
+
 <!-- - **Typescript.** So useful yet it never really interested me until a while ago.
 - **Local Storage saving.** Let's keep them stored data coming.
 - **Transitions.** Making things pretty since (insert year here).
