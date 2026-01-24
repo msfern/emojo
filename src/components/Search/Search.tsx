@@ -1,15 +1,14 @@
-import React, { useEffect } from 'react';
-
-import './Search.module.css';
+import { useEffect, createRef } from 'react';
 import { Search as SearchType } from '@/types/Search';
 
-const Search: React.FC<SearchType> = ({
+import './Search.module.css';
+
+const Search = ({
   updateSearch,
-  isLoading,
   resultWasCleared,
   setResultWasCleared,
-}) => {
-  const searchRef = React.createRef<HTMLInputElement>();
+}: SearchType) => {
+  const searchRef = createRef<HTMLInputElement>();
 
   useEffect(() => {
     if (resultWasCleared) {
@@ -24,10 +23,11 @@ const Search: React.FC<SearchType> = ({
   return (
     <div className="search-container">
       <input
+        type="text"
+        name="search-field"
         className="search-input"
         placeholder="Search emoji..."
-        onChange={(e) => updateSearch(e.target.value)}
-        disabled={isLoading}
+        // onChange={(e) => updateSearch(e.target.value)}
         ref={searchRef}
       />
       <i className="search-icon fas fa-search"></i>

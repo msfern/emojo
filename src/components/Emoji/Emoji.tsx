@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Clipboard from 'clipboard';
 
 import './Emoji.module.css';
@@ -10,7 +10,7 @@ const Emoji = ({ slug, character }: EmojiType) => {
   }, []);
 
   return (
-    <div className="emoji-card" data-clipboard-text={character}>
+    <div className="emoji-card" data-clipboard-text={character} role="listitem">
       <span className="emoji-char">{character}</span>
       <p className="emoji-slug">{slug}</p>
     </div>

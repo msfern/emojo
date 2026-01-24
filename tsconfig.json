@@ -16,6 +16,7 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
+    "types": ["@testing-library/jest-dom"],
     "paths": {
       "@/*": [
         "./src/*"
@@ -26,7 +27,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "vitest.setup.js"
   ],
   "exclude": [
     "node_modules"

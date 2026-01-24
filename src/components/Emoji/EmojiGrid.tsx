@@ -1,10 +1,9 @@
-import React from 'react';
 import Emoji from '../Emoji/Emoji';
-
-import './EmojiGrid.module.css';
 import { EmojiList as EmojiListType } from '@/types/Emoji';
 
-const EmojiList = ({ emojiList, isLoading, clearResults }: EmojiListType) => {
+import './EmojiGrid.module.css';
+
+const EmojiList = ({ emojiList, clearResults }: EmojiListType) => {
   return (
     <section className="result-container">
       {emojiList.length > 0 && (
@@ -12,16 +11,14 @@ const EmojiList = ({ emojiList, isLoading, clearResults }: EmojiListType) => {
           Clear results
         </button>
       )}
-      <div className="emoji-list">
-        {/* {isLoading && <Loading />} */}
-        {emojiList.map((emoji) => (
-          <Emoji
-            key={emoji.slug}
-            slug={emoji.slug}
-            character={emoji.character}
-            unicodeName={emoji.unicodeName}
-          />
-        ))}
+      <div className="emoji-list" role="list" aria-label="Emoji search results">
+        {emojiList.length > 0 ? (
+          emojiList.map((emoji) => <Emoji key={emoji.slug} {...emoji} />)
+        ) : (
+          <div className="emoji-list__empty-state">
+            <p>No emojis found for that search. Try something else!</p>
+          </div>
+        )}
       </div>
     </section>
   );
