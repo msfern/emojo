@@ -1,21 +1,17 @@
-import React, { useEffect } from "react";
-import Clipboard from "clipboard";
+import React, { useEffect } from 'react';
+import Clipboard from 'clipboard';
 
-import "./Emoji.module.css";
+import './Emoji.module.css';
+import { Emoji as EmojiType } from '@/types/Emoji';
 
-interface EmojiProps {
-  slug: string;
-  emoji: string;
-}
-
-const Emoji: React.FC<EmojiProps> = ({ slug, emoji }) => {
+const Emoji = ({ slug, character }: EmojiType) => {
   useEffect(() => {
-    new Clipboard(".emoji-card");
+    new Clipboard('.emoji-card');
   }, []);
 
   return (
-    <div className="emoji-card" data-clipboard-text={emoji}>
-      <span className="emoji-char">{emoji}</span>
+    <div className="emoji-card" data-clipboard-text={character}>
+      <span className="emoji-char">{character}</span>
       <p className="emoji-slug">{slug}</p>
     </div>
   );

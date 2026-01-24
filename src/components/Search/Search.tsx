@@ -1,15 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
-import "./Search.module.css";
+import './Search.module.css';
+import { Search as SearchType } from '@/types/Search';
 
-interface SearchProps {
-  updateSearch: (value: string) => void;
-  isLoading: boolean;
-  resultWasCleared: boolean;
-  setResultWasCleared: (value: boolean) => void;
-}
-
-const Search: React.FC<SearchProps> = ({
+const Search: React.FC<SearchType> = ({
   updateSearch,
   isLoading,
   resultWasCleared,
@@ -20,7 +14,7 @@ const Search: React.FC<SearchProps> = ({
   useEffect(() => {
     if (resultWasCleared) {
       if (searchRef.current) {
-        searchRef.current.value = "";
+        searchRef.current.value = '';
       }
     }
     setResultWasCleared(false);

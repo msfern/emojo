@@ -1,19 +1,10 @@
-import React from "react";
-import Emoji from "../Emoji/Emoji";
+import React from 'react';
+import Emoji from '../Emoji/Emoji';
 
-import "./EmojiGrid.module.css";
+import './EmojiGrid.module.css';
+import { EmojiList as EmojiListType } from '@/types/Emoji';
 
-interface EmojiListProps {
-  emojiList: Array<{ slug: string; character: string }>;
-  isLoading: boolean;
-  clearResults: () => void;
-}
-
-const EmojiList: React.FC<EmojiListProps> = ({
-  emojiList,
-  isLoading,
-  clearResults,
-}) => {
+const EmojiList = ({ emojiList, isLoading, clearResults }: EmojiListType) => {
   return (
     <section className="result-container">
       {emojiList.length > 0 && (
@@ -24,7 +15,12 @@ const EmojiList: React.FC<EmojiListProps> = ({
       <div className="emoji-list">
         {/* {isLoading && <Loading />} */}
         {emojiList.map((emoji) => (
-          <Emoji key={emoji.slug} slug={emoji.slug} emoji={emoji.character} />
+          <Emoji
+            key={emoji.slug}
+            slug={emoji.slug}
+            character={emoji.character}
+            unicodeName={emoji.unicodeName}
+          />
         ))}
       </div>
     </section>

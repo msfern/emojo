@@ -1,21 +1,13 @@
-import React from "react";
+import { Category as CategoryType } from '@/types/Category';
 
-import "./Category.module.css";
+import './Category.module.css';
 
-interface CategoryProps {
-  details: {
-    slug: string;
-    emoji: string;
-  };
-  loadCategory: (slug: string) => void;
-}
-
-const Category: React.FC<CategoryProps> = ({ details, loadCategory }) => {
+const Category = ({ details, loadCategory }: CategoryType) => {
   const formatCategoryTitle = (title: string) => {
     const formattedTitle = title
-      .split("-")
+      .split('-')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" & ");
+      .join(' & ');
     return formattedTitle;
   };
 

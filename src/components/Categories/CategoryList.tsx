@@ -1,16 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import Category from "./Category";
+import Category from './Category';
 
-import "./CategoryList.module.css";
+import './CategoryList.module.css';
+import { CategoryList as CategoryListType } from '@/types/Category';
 
-interface CategoryListProps {
-  categories: Array<{ slug: string; emoji: string }>;
-  isLoading: boolean;
-  loadCategory: (slug: string) => void;
-}
-
-const CategoryList: React.FC<CategoryListProps> = ({
+const CategoryList: React.FC<CategoryListType> = ({
   categories,
   isLoading,
   loadCategory,
@@ -22,8 +17,8 @@ const CategoryList: React.FC<CategoryListProps> = ({
         {/* {isLoading && <Loading />} */}
         {categories.map((category) => (
           <Category
-            key={category.slug}
-            details={category}
+            key={category.details.slug}
+            details={category.details}
             loadCategory={loadCategory}
           />
         ))}

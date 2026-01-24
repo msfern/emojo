@@ -1,21 +1,12 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import Search from "@/components/Search";
-import CategoryList from "@/components/Categories/CategoryList";
-import Footer from "@/components/Footer";
-import EmojiList from "@/components/Emoji/EmojiGrid";
-import { useEffect, useState } from "react";
-
-interface Emoji {
-  slug: string;
-  character: string;
-  unicodeName: string;
-}
-
-interface Category {
-  slug: string;
-  emoji: string;
-}
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
+import Search from '@/components/Search';
+import CategoryList from '@/components/Categories/CategoryList';
+import Footer from '@/components/Footer';
+import EmojiList from '@/components/Emoji/EmojiGrid';
+import { useEffect, useState } from 'react';
+import { Category } from '@/types/Category';
+import { Emoji } from '@/types/Emoji';
 
 const api = {
   get: async (url: string) => {
@@ -36,7 +27,7 @@ export default function Home() {
     const emojiList = allEmojis.filter((emoji) =>
       emoji.unicodeName.toLowerCase().includes(text.toLowerCase()),
     );
-    if (text === "") {
+    if (text === '') {
       return clearResults();
     }
     setEmojis(emojiList);
@@ -78,14 +69,14 @@ export default function Home() {
         }));
 
       const categoryList = await Promise.all(response.data.map(parse));
-      setCategories(categoryList.filter(({ slug }) => slug !== "component"));
+      setCategories(categoryList.filter(({ slug }) => slug !== 'component'));
       setLoadingCategories(false);
     }
     loadCategories();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function loadCategory(category: Category["slug"]) {
+  async function loadCategory(category: Category['details']['slug']) {
     clearResults();
     setLoadingEmoji(true);
     const response = await api.get(
