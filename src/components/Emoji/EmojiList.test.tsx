@@ -2,13 +2,9 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import EmojiList from './EmojiGrid';
 import { EmojiList as EmojiListType } from '@/types/Emoji';
+import { mockEmojis } from '@/utils/emojiMocks';
 
 describe('EmojiList Component', () => {
-  const mockEmojis = [
-    { slug: 'smile', character: '😄', unicodeName: 'smiling face' },
-    { slug: 'thumbs_up', character: '👍', unicodeName: 'thumbs up' },
-  ];
-
   const renderComponent = (props: Partial<EmojiListType> = {}) => {
     const defaultProps: EmojiListType = {
       emojiList: [],

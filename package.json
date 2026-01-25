@@ -34,6 +34,8 @@
     "sass": "^1.71.0",
     "ts-node": "^10.9.2",
     "typescript": "^5",
-    "vitest": "^4.0.18"
+    "vite-tsconfig-paths": "^6.0.5",
+    "vitest": "^4.0.18",
+    "vitest-axe": "^0.1.0"
   }
 }
