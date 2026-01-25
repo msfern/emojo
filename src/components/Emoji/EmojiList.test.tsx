@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import EmojiList from './EmojiGrid';
+import { axe } from 'vitest-axe';
 import { EmojiList as EmojiListType } from '@/types/Emoji';
 import { mockEmojis } from '@/utils/emojiMocks';
 
@@ -30,5 +31,10 @@ describe('EmojiList Component', () => {
     renderComponent({ emojiList: [] });
     const message = screen.getByText(/no emojis found/i);
     expect(message).toBeInTheDocument();
+  });
+
+  test('should have no axe violations', async () => {
+    const { baseElement } = renderComponent({ emojiList: [] });
+    expect(await axe(baseElement)).toHaveNoViolations();
   });
 });
